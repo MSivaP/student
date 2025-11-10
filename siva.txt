@@ -1,0 +1,42 @@
+Git install :
+Using script we can install git
+Step-1: 
+vi myscript.sh
+sudo wget https://raw.githubusercontent.com/lerndevops/labs/master/scripts/installGit.sh -P /tmp
+sudo chmod 755 /tmp/installGit.sh
+sudo bash /tmp/installGit.sh
+
+Step-2: sh myscript.sh
+Step-3: check git version 
+git version
+
+Java install
+Step-1: vi javainstall.sh
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install -y fontconfig openjdk-17-jre openjdk-17-jdk
+Step-2: sh javainstall.sh
+Step-3: check java version
+java version
+
+
+Maven Insatll :
+Step-1: install the maven
+wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz 
+Step-2:
+tar -xvzf apache-maven-3.9.11-bin.tar.gz
+mv apache-maven-3.9.11 /opt/
+mv /opt/apache-maven-3.9.11 /opt/maven
+Ste-3: Run the below command in the server for home path.
+sudo echo "MAVEN_HOME=\"/opt/maven\"" >> /etc/profile
+sudo echo "PATH=\$MAVEN_HOME/bin:\$PATH" >> /etc/profile
+source /etc/profile
+
+Jenkins Install :
+Step-1: Install the jenkins.
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+Step-2: Restart the jenkins
+systemctl restart jenkins
